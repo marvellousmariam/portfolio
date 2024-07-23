@@ -1,0 +1,310 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <title>{%block title%}Portfolio-Home{%endblock title%}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
+    {%block extrahead%}
+    {%endblock%}
+    </head>
+
+    <body>
+    <header class="header" id="header">
+        <nav class="nav container">
+         <a href="#" class="nav_logo">ℳ³</a>
+         <div class="nav_menu" id="nav-menu">
+            <ul class="nav_list">
+               <li> <a href="#" class="nav_link">Home</a></li>
+               <li> <a href="#mywork" class="nav_link">Work</a></li>
+               <li> <a href="#info" class="nav_link">My Info</a></li>
+               <li> <a href="#service" class="nav_link">Services</a></li>
+               <li> <a href="#contact" class="nav_link">Contact Me</a></li>
+            </ul>
+            <!-- Close btn -->
+            <div class="nav_close" id="nav-close">
+                <i class="ri-close-large-line"></i>
+            </div>
+         </div>
+           <!-- Toggle btn -->
+            <div class="nav_toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+      
+       <main>
+       <section class="home section" id="home">
+          <div class="home_container container grid">
+         <img src="{% static 'images/mine.jpg' %}" class="home_img">
+        
+         <div class="home_data">
+          <h1 class="home_name">Mariam <br> Adewunmi</h1>
+          <h3 class="home_profession">Softwear Enginneer</h3>
+         </div> 
+         </div>
+         <a href="#mywork" class="home_scroll">
+          <div class="home_scroll-box">
+            <i class="ri-arrow-down-line"></i>
+          </div>
+          <span class="home_scroll-text">Recent Works</span>
+         </a>
+         
+       </section>
+       {% comment %} Work {% endcomment %}
+         <section class="work section" id="mywork">
+           <h2 class="section_title">RECENT WORKS</h2>
+           <div class="work_container container grid">
+            {% for project in projects %}
+            <article class="work_card">
+              <div  class="work_link">
+                <h2 class="project_title">{{project.title}}</h2>
+                <p class="project_description">{{project.description}}</p>
+                {% comment %} <div class="carousel">
+                  <div class="carousel-images">
+                    {% for image in project.images.all %} {% endcomment %}
+                      {% comment %} <div class="carousel-item"> {% endcomment %}
+                        <img src="{{ project.image.url }}" alt="Project image" />
+                      {% comment %} </div>
+                    {% endfor %}
+                  </div>
+                  <a class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</a>
+                  <a class="carousel-control next" onclick="moveSlide(1)">&#10095;</a>
+                </div> {% endcomment %}
+              {% comment %} </div> {% endcomment %}
+             <a href="{{project.link}}"><i class="ri-arrow-right-line"></i> </a>
+              
+            </article>
+            {% endfor %}
+           </div>
+       </section>
+       {% comment %} info {% endcomment %}
+     <section class="info section" id="info">
+         <h2 class="section_title">MY INFO</h2>
+         <div class="info_container container grid">
+          <div class="about grid">
+            <div class="about_content">
+              <h3 class="info_title">About Me</h3>
+              <p class="about_descrption">
+                I am a software engineer with a passion for building and designing software applications. I have a strong
+                background in computer science and a deep understanding of programming languages, algorithms, and data
+                structures. I am skilled in a variety of programming languages, including Python, JavaScript, and Flutter
+                I have experience working on a range of projects, from small-scale web applications to large-scale
+                enterprise software. I am a team player and enjoy collaborating with others to create innovative solutions
+                I am always looking for new challenges and opportunities to learn and grow as a software engineer.
+              </p>
+              <a href="{% static 'images/cv.pdf' %}" download="" target="_blank" class="button about_button
+              ">Download CV</a>
+            </div>
+            <img src="{% static 'images/mine.jpg' %}" alt="image" class="about_img">
+
+
+
+          </div>
+          <div class="experience">
+            <h3 class="info_title">Experience</h3>
+            <div class="experience_content grid">
+              <div class="experencies_data grid">
+                <h2 class="experience_company">Google</h2>
+               <div class="">
+                <h3 class="experencies_profession">Software Engineer</h3>
+                <span class="experience date">07/24/Present</span>
+                <p class="experience_descrption">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam
+                </p>
+               </div>
+                
+              </div>
+              <div class="experencies_data grid">
+                <h2 class="experience_company">Adobe</h2>
+               <div class="">
+                <h3 class="experencies_profession">Frontend Engineer</h3>
+                <span class="experience date">07/24/Present</span>
+                <p class="experience_descrption">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam
+                </p>
+               </div>
+                
+              </div>
+              <div class="experencies_data grid">
+                <h2 class="experience_company">Twitter</h2>
+               <div class="">
+                <h3 class="experencies_profession">Backend Engineer</h3>
+                <span class="experience date">07/24/Present</span>
+                <p class="experience_descrption">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Quisquam
+                </p>
+               </div>
+                
+              </div>
+          </div>
+          <div class="skills">
+            <h3 class="info_title">
+              Skills
+            </h3>
+            <div class="skill_content grid">
+              <div class="skill_box">
+                <img src="{% static 'images/html.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">HTML</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/css.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">CSS</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/api.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">API</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/figma.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">Figma</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/flutter.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">FLUTTER</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/git.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">GIT</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/graphql.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">GRAPHQL</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/javascript.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">JAVASCRIPT</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/mu5.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">Material UI</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/nextjs.svg' %}" alt="image" class="skill_img">
+                <span class="skill_name">NEXTJS</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/node.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">NODEJS</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/postgresql.svg' %}" alt="image" class="skill_img">
+                <span class="skill_name">POSTGRESQL</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/python.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">PYTHON</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/react.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">REACT</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/redux.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">REDUX</span>
+              </div>
+              <div class="skill_box">
+                <img src="{% static 'images/sass.png' %}" alt="image" class="skill_img">
+                <span class="skill_name">SASS</span>
+                  </div>
+                <div class="skill_box">
+                  <img src="{% static 'images/typescript.png' %}" alt="image" class="skill_img">
+                  <span class="skill_name">TYPESCRIPT</span>
+                </div>
+            </div>
+          </div>
+         </div>
+       </section>
+        <section class="service section" id="service">
+       <h2 class="section_title">SERVICES</h2>
+       <div class="service_container container grid">
+        <article class="service_card">
+          <i class="ri-code-box-line service_icon"></i>
+          <h3 class="service_title">Back End Dev</h3>
+          <p class="service_description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates similique perferendis
+          </p>
+        </article>
+        <article class="service_card">
+          <i class="ri-pencil-ruler-2-line service_icon"></i>
+          <h3 class="service_title">Front End Dev</h3>
+          <p class="service_description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates similique perferendis
+          </p>
+        </article>
+        <article class="service_card">
+          <i class="ri-seo-line service_icon"></i>
+          <h3 class="service_title">Mobil Application Dev</h3>
+          <p class="service_description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates similique perferendis 
+          </p>
+        </article>
+        <article class="service_card">
+          <i class="ri-seo-line service_icon"></i>
+          <h3 class="service_title">Softwear Enginneer</h3>
+          <p class="service_description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates similique perferendis
+          </p>
+        </article>
+       </div>
+
+       </section>
+       <section class="contact section" id="contact">
+        <h2 class="section_title">CONTACT ME</h2>
+        <div class="contact_container container grid">
+          <form action="" class="contact_form grid" id="contact-form">
+            <div class="contact_group grid">
+              <input type="text" class="contact_input" name="user_name" placeholder="Full Name">
+              <input type="email" class="contact_input" name="user_email" placeholder="Email">
+            </div>
+            <textarea name="user_message" class="contact_input contact_area" placeholder="Enter your Message"></textarea>
+            <button type="submit" class="button contact_button">Send Message</button>
+            <p class="contact_message" id="contact-message">Message</p>
+          </form>
+          <div class="contact_social grid">
+            <a href="" target="_blank" class="contact_social-link">
+              <i class="ri-instagram_line"></i>
+              <span>Instagam</span>
+            </a>
+            <a href="" target="_blank" class="contact_social-link">
+              <i class="ri-linkedin-box_line"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="" target="_blank" class="contact_social-link">
+              <i class="ri-instagram_line"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="" target="_blank" class="contact_social-link">
+              <i class="ri-instagram_line"></i>
+              <span>Youtube</span>
+            </a>
+          </div>
+        </div>
+       </section>
+       <footer class="footer">
+        <div class="footer_container container grid">
+          <ul class="footer_links">
+            <li><a href="#home" class="footer_link" >Home</a>a</li>
+            <li><a href="#work" class="footer_link">Work</a></li>
+            <li><a href="#info" class="footer_linke">Info</a></li>
+            
+          </ul>
+          <span class="footer_copy">
+            &#169; All Rights Reserved By ℳ³
+          </span>
+        </div>
+       </footer>
+       <a href="" class="scrollup" id="scrollup">
+        <i class="ri-arrow-up-line"></i>
+       </a>
+       </main>
+        <script src="{%static 'js/home.js'%}"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+       
+    </body>
+</html>
