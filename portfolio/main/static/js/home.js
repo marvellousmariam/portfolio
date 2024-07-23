@@ -40,14 +40,36 @@ const contactForm=document.getElementById('contact-form');
 
  const sendEmail = (e) =>{
     e.preventDefault();
-    emailjs.sendForm('service_fk1silz','template_5re21qq',"")
-    .then((result) => {
-        
+    emailjs.sendForm('service_fk1silz','template_gcqczjf','#contact-form','3hK53InNEp0NJIPdg')
+    .then(() => {
+     contactMessage.textContext=' Message sent successfully ✅'
+   
+   //Remove sfter five sec
+   setTimeout(() => {
+    contactMessage.textContent='';
+    }, 5000);
+    // clear input field
+    contactForm.reset();
     })
 
  }
  contactForm.addEventListener('submit',sendEmail)
 
+//scroll reveal animation
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 2000,
+    delay:400,
+    //reset:true//Animations reapeat
+
+})
+sr.reveal(`.home_data,.experience,.skills,.contact_container`)
+sr.reveal(`.home_img`,{delay:600})
+sr.reveal(`.home_scroll`,{delay:800})
+sr.reveal(`.work_card,.service_card`,{interval:100})
+sr.reveal(`.about_content`,{origin:'right'})
+sr.reveal(`.about_img`,{origin:'left'})
 
 
 
@@ -64,7 +86,8 @@ const contactForm=document.getElementById('contact-form');
 
 
 
-// document.addEventListener("DOMContentLoaded",function(){
+
+// docu ment.addEventListener("DOMContentLoaded",function(){
 //     const nameSearch=document.getElementById("name-search")
 //     const tags = document.getElementsByClassName(".tag")
 //     const projects = document.querySelectorAll(".project")

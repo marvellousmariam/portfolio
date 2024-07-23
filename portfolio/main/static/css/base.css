@@ -303,11 +303,13 @@ z-index: -1;
   .button{
     display: inline-flex;
     justify-content: center;
+    cursor: pointer;
     background-color: var(--first-color);
     color: var(--text-color);
     font-weight: var(--font-semi-bold);
     padding: 1.25rem 2rem;
     transition: background-color  .4s;
+    
   }
   .button:hover{
     background-color: var(--first-color-alt);
@@ -656,8 +658,8 @@ background-color: var(--first-color);
       margin-top: 2rem;
     }
     .home_container{
-      grid-template-columns: 375px 350px;
-      gap: 3rem 16rem;
+      grid-template-columns: 485px 600px;
+      gap: 2rem 12rem;
     }
     .home_img{
       width: 800px;
